@@ -1,2 +1,2 @@
 # MxOnline
-The django study projectj
+The django study project
