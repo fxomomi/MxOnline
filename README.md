@@ -1,2 +1,2 @@
 # MxOnline
-学习Django的一个小项目
+学习Django的Demo，一个小型的在线教育平台。
