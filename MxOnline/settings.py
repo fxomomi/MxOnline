@@ -1,3 +1,4 @@
+# -*- encoding:utf-8 -*-
 """
 Django settings for MxOnline project.
 
@@ -15,7 +16,9 @@ import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# NOTE:将自定义的Apps目录插入到搜索目录中
 sys.path.insert(0, os.path.join(BASE_DIR, "Apps"))
+sys.path.insert(0, os.path.join(BASE_DIR, "ExApps"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -43,7 +46,12 @@ INSTALLED_APPS = [
     'Courses',
     'Organization',
     'Operation',
+    # 引入xadmin的相关App
+    'xadmin',
+    'crispy_forms',
 ]
+
+# NOTE:将默认的用户类修改为自定义的UserProfile
 AUTH_USER_MODEL = "Users.UserProfile"
 
 MIDDLEWARE_CLASSES = [
@@ -114,15 +122,21 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+# NOTE:将后台admin改为中文，1.8版本以前用的是zh-CN
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+# NOTE:时区改为上海
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# USE_TZ = True
+# NOTE:用本地时间
+USE_TZ = False 
 
 
 # Static files (CSS, JavaScript, Images)

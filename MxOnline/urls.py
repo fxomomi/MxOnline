@@ -1,3 +1,4 @@
+# -*- encoding:utf-8 -*-
 """MxOnline URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,7 +16,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+import xadmin
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    # NOTE:替换admin为xadmin
+    # url(r'^admin/', admin.site.urls),
+    url(r'^xadmin/', xadmin.site.urls),
 ]

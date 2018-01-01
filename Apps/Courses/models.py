@@ -9,7 +9,7 @@ class Course(models.Model):
     Name = models.CharField(max_length=50, verbose_name=u"课程名")
     Desc = models.CharField(max_length=300, verbose_name=u"课程描述")
     Detail = models.TextField(verbose_name=u"课程详情")
-    Degree = models.CharField(max_length=2, choices=(("cj", u"初级"), ("zj", u"中级"), ("gj", u"高级")))
+    Degree = models.CharField(max_length=2, choices=(("cj", u"初级"), ("zj", u"中级"), ("gj", u"高级")), verbose_name=u"难度")
     LearnTimes = models.IntegerField(default=0, verbose_name=u"学习时长(分钟)")
     Students = models.IntegerField(default=0, verbose_name=u"学习人数")
     FavNumbers = models.IntegerField(default=0, verbose_name=u"收藏人数")
@@ -20,6 +20,9 @@ class Course(models.Model):
     class Meta:
         verbose_name = u"课程"
         verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return self.Name
 
 
 class Chapter(models.Model):
